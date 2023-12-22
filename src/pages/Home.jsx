@@ -4,14 +4,19 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   const [commissions, setCommissions] = useState([]);
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     axios
       .get("https://cheshire-youth-server.onrender.com/api/commission")
       .then(({ data }) => {
         setCommissions(data.commissions);
-      });
+      }).finally(()=>{
+        setIsLoading(false)
+      })
   }, []);
+
+  if(isLoading) return <h1>Loading</h1>
 
   return (
     <section className="commissions-container">

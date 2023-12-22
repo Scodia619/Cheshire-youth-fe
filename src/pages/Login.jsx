@@ -47,7 +47,7 @@ const Login = () => {
         loginData
       )
       .then(({ data }) => {
-        setUser(data.user.username)
+        setUser(data.user)
         navigate("/");
       })
       .catch(({ response: { data } }) => {

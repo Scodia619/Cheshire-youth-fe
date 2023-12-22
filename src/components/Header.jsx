@@ -5,13 +5,15 @@ import { UserContext } from "../contexts/userContext";
 const Header = () => {
 
     const {user, setUser} = useContext(UserContext)
+    console.log(user)
 
   return (
     <nav>
       <h1>Youth Commission</h1>
+      {user.isAdmin && user ? <Link to="/admin"><h1>Admin Panel</h1></Link>: null}
       <Link to="/login">
         <h1 id='login'>{
-            user !== '' ? user : 'Login'
+            user !== '' ? user.username : 'Login'
         }</h1>
       </Link>
     </nav>

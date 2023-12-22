@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 
 import { Route, Routes } from "react-router-dom";
 import Login from "./pages/Login";
+import AdminPanel from "./pages/AdminPanel";
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/:commission" element={<ReportsList />} />
         <Route path="/login" element={<Login />}/>
+        <Route path="/admin" element={<AdminPanel />}/>
+        <Route path="/admin/:commission" element={<ReportsList />} />
       </Routes>
     </>
   );
