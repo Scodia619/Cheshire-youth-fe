@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import axios from "axios";
+import { UserContext } from "../contexts/userContext";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -7,6 +8,8 @@ import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
+
+  const {user, setUser} = useContext(UserContext)
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -44,6 +47,7 @@ const Login = () => {
         loginData
       )
       .then(({ data }) => {
+        setUser(data.user.username)
         navigate("/");
       })
       .catch(({ response: { data } }) => {
