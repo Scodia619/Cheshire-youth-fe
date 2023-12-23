@@ -5,6 +5,7 @@ import { UserContext } from "../contexts/userContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+import { loginUser } from "../../api";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -41,13 +42,9 @@ const Login = () => {
       username,
       password,
     };
-    axios
-      .post(
-        `https://cheshire-youth-server.onrender.com/api/users/login`,
-        loginData
-      )
-      .then(({ data }) => {
-        setUser(data.user)
+    loginUser(loginData)
+      .then((user) => {
+        setUser(user)
         navigate("/");
       })
       .catch(({ response: { data } }) => {

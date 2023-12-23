@@ -1,6 +1,7 @@
 import { useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { getReportsByCommission } from "../../api";
 
 const ReportsList = () => {
 
@@ -12,11 +13,10 @@ const ReportsList = () => {
   const [isError, setIsError] = useState(false)
 
   useEffect(() => {
-    axios
-      .get(`https://cheshire-youth-server.onrender.com/api/reports/${commission}`)
-      .then(({ data }) => {
-        if(data.reports.length){
-          setReports(data.reports);
+      getReportsByCommission(commission)
+      .then((reports) => {
+        if(reports.length){
+          setReports(reports);
           setNoData(false)
         }
       }).catch(()=>{

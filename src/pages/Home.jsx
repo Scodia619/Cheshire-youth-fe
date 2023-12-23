@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { getAllCommissions } from "../../api";
 
 const Home = () => {
   const [commissions, setCommissions] = useState([]);
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    axios
-      .get("https://cheshire-youth-server.onrender.com/api/commission")
-      .then(({ data }) => {
-        setCommissions(data.commissions);
+    getAllCommissions()
+      .then((commissions) => {
+        setCommissions(commissions);
       }).finally(()=>{
         setIsLoading(false)
       })

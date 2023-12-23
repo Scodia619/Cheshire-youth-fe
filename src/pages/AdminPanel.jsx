@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { UserContext } from "../contexts/userContext";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { getCommissionsByUser } from "../../api";
 
 const AdminPanel = () => {
   const { user, setUser } = useContext(UserContext);
@@ -9,19 +10,14 @@ const AdminPanel = () => {
   const [commissions, setCommissions] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(
-        `https://cheshire-youth-server.onrender.com/api/commission/user/${user.user_id}`
-      )
-      .then(({ data }) => {
-        setCommissions(data.commissions);
+    getCommissionsByUser(user.user_id)
+      .then((commissions) => {
+        setCommissions(commissions);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
-
-  console.log(commissions);
 
   return (
     <section className="commissions-container">
