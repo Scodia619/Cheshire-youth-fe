@@ -23,3 +23,13 @@ export const getReportsByCommission = (commission) => {
     return api.get(`/reports/${commission}`)
     .then(res => res.data.reports)
 }
+
+export const getTopicsByCommission = (commission) => {
+    return api.get(`/topics/${commission}`)
+    .then(res => res.data.topics)
+}
+
+export const postReport = (postData) => {
+    return api.post('/reports', postData)
+    .then(res => res.data.report)
+}

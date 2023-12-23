@@ -3,10 +3,11 @@ import "./App.css";
 import Header from "./components/Header";
 import ReportsList from "./components/ReportsList";
 import Home from "./pages/Home";
-
-import { Route, Routes } from "react-router-dom";
 import Login from "./pages/Login";
 import AdminPanel from "./pages/AdminPanel";
+import PostReport from "./components/postReport";
+
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/:commission" element={<ReportsList />} />
+        <Route path="/:commission" element={<PostReport />} />
         <Route path="/login" element={<Login />}/>
         <Route path="/admin" element={<AdminPanel />}/>
         <Route path="/admin/:commission" element={<ReportsList />} />
