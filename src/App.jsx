@@ -9,6 +9,7 @@ import PostReport from "./components/postReport";
 import ViewReports from "./components/ViewReports";
 import CreateUser from "./components/CreateUser";
 import LinkTopics from "./components/LinkTopic";
+import NewTopic from "./components/NewTopic";
 
 import { Route, Routes } from "react-router-dom";
 
@@ -24,6 +25,7 @@ function App() {
         <Route path='/admin/reports/' element={<ViewReports />}/>
         <Route path="/admin/reports/:commission" element={<ReportsList />} />
         <Route path='/admin/link-topic' element={<LinkTopics />} />
+        <Route path='/admin/new-topic' element={<NewTopic />} />
         <Route path='/admin/create-user' element={<CreateUser />}/>
       </Routes>
     </>

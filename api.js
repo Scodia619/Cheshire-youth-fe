@@ -48,3 +48,8 @@ export const postNewLink = (postData) => {
     return api.post('/topics/link', postData)
     .then(res => res.data.link)
 }
+
+export const postNewTopic = (postData) => {
+    return api.post('/topics', postData)
+    .then(res => res.data.topic)
+}

@@ -56,6 +56,8 @@ const LinkTopics = () => {
 
     postNewLink(postData).then(()=>{
         notify('New Link Established')
+        setChosenCommission('')
+        setChosenTopic('')
     }).catch(({ response: { data } }) => {
         notify(data.msg);
       });
