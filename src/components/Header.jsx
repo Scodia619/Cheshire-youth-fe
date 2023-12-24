@@ -9,13 +9,13 @@ const Header = () => {
 
   return (
     <nav>
-      <Link to={user.isAmdin ? '/admin' : '/'}>
+      <Link to={user.isAdmin ? '/admin' : '/'}>
       <h1>Youth Commission</h1>
       </Link>
       {user.isAdmin && user ? <Link to="/admin"><h1>Admin Panel</h1></Link>: null}
       <Link to="/login">
         <h1 id='login'>{
-            user !== '' ? user.username : 'Login'
+            user.username ? user.username : "Login"
         }</h1>
       </Link>
     </nav>
