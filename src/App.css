@@ -3,6 +3,7 @@ body{
     padding: 0;
     width: 100vw;
     height: 100vh;
+    font-family: 'Dosis'
 }
 
 .commissions-container{
@@ -40,14 +41,18 @@ a{
 nav{
     display: flex;
     justify-content: space-between;
+    background-color: #FF7D00;
+    height: 5em
 }
 
 nav h1{
-    margin: 1em;
+    margin: 0.4em;
+    color: #4F5165;
+    font-family: 'Dosis';
 }
 
-#login:hover{
-    color: blue
+nav h1:hover{
+    color: #09bbd7
 }
 
 .login-form{

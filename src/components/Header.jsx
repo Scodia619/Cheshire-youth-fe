@@ -5,7 +5,6 @@ import { UserContext } from "../contexts/userContext";
 const Header = () => {
 
     const {user, setUser} = useContext(UserContext)
-    console.log(user)
 
   return (
     <nav>
