@@ -53,27 +53,30 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container">
-      <form className="login-form" onSubmit={handleSubmit}>
-        <label htmlFor="username">
+    <div className="form-container">
+      <h1>Login</h1>
+      <form className="form" onSubmit={handleSubmit}>
+        <label htmlFor="username" className="form-label">
           Username:
+        </label>
           <input
             type="text"
+            className="form-input"
             name="username"
             id="username"
             onChange={handleUsername}
           />
-        </label>
-        <label htmlFor="password">
+        <label htmlFor="password" className="form-label">
           Password:
+        </label>
           <input
             type="password"
+            className="form-input"
             name="password"
             id="password"
             onChange={handlePassword}
           />
-        </label>
-        <button>Login</button>
+        <button className="submit">Login</button>
       </form>
       <ToastContainer
         position="top-center"

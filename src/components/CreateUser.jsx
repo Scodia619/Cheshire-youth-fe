@@ -47,14 +47,14 @@ const CreateUser = () => {
     }
 
     return (
-        <section className="user-container">
+        <section className="form-container">
             <h1>Creating a user</h1>
-            <form className="user-form" onSubmit={handleSubmit}>
+            <form className="form" onSubmit={handleSubmit}>
                 <label htmlFor="username">Username:</label>
-                <input type="text" name="username" id="username" value={username} onChange={handleUsername}/>
+                <input type="text" className="form-input" name="username" id="username" value={username} onChange={handleUsername}/>
                 <label htmlFor="password">Password:</label>
-                <input type="password" name="password" id="password" value={password} onChange={handlePassword}/>
-                <button>Submit</button>
+                <input type="password" className="form-input" name="password" id="password" value={password} onChange={handlePassword}/>
+                <button className="submit">Submit</button>
             </form>
             <ToastContainer
         position="top-center"

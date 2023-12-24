@@ -79,9 +79,9 @@ const PostReport = () => {
   };
 
   return (
-    <section className="report-container">
+    <section className="form-container">
       <h1>Posting Report</h1>
-      <form className="report-form" onSubmit={handleSubmit}>
+      <form className="form" onSubmit={handleSubmit}>
         <label htmlFor="topics">Select a Topic:</label>
         <select
           name="topics"
@@ -100,7 +100,7 @@ const PostReport = () => {
             );
           })}
         </select>
-        <label htmlFor="body_experience">Experience (min 50 characters):</label>
+        <label htmlFor="body_experience" className="form-label">Experience (min 50 characters):</label>
         <textarea
           value={bodyExp}
           name="body_experience"
@@ -108,11 +108,11 @@ const PostReport = () => {
           cols="30"
           rows="10"
           onChange={handleBodyExperience}
-          placeholder="experience"
-          className={bodyExp.length <= 50 ? "fail" : "success"}
+          placeholder="Experience"
+          className={bodyExp.length <= 50 ? "fail form-input" : "success form-inputl"}
           required={true}
         ></textarea>
-        <label htmlFor="body_improvement">
+        <label htmlFor="body_improvement" className="form-label">
           Improvement (min 50 characters):
         </label>
         <textarea
@@ -122,11 +122,11 @@ const PostReport = () => {
           cols="30"
           rows="10"
           onChange={handleBodyImprovement}
-          className={bodyImp.length <= 50 ? "fail" : "success"}
-          placeholder="improvement"
+          className={bodyImp.length <= 50 ? "fail form-input" : "success form-input"}
+          placeholder="Improvement"
           required={true}
         ></textarea>
-        <button>Submit Report</button>
+        <button className='submit'>Submit Report</button>
       </form>
       <ToastContainer
         position="top-center"
