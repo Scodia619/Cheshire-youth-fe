@@ -1,7 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { UserContext } from "../contexts/userContext";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import { getCommissionsByUser } from "../../api";
 
 const AdminPanel = () => {

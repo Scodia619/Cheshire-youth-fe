@@ -19,8 +19,8 @@ export const getAllCommissions = () => {
     .then(res => res.data.commissions)
 }
 
-export const getReportsByCommission = (commission) => {
-    return api.get(`/reports/${commission}`)
+export const getReportsByCommission = (commission, params) => {
+    return api.get(`/reports/${commission}`, params)
     .then(res => res.data.reports)
 }
 
