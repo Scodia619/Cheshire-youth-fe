@@ -30,8 +30,6 @@ const ReportsList = () => {
       });
   }, [params]);
 
-  console.log(reports);
-
   if (isError) {
     return <h1>Error Loading Page</h1>;
   }

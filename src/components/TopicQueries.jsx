@@ -17,7 +17,6 @@ const TopicQueries = (props) => {
   const handleTopic = (e) => {
     e.preventDefault()
     const newParams = { ...props.params };
-    console.log(e.target.id)
     if (e.target.id === "all") {
       setSearchParams({});
       props.setParams({ params: {} });
@@ -41,7 +40,6 @@ const TopicQueries = (props) => {
             All
           </Dropdown.Item>
           {topics.map(({ topic: { topic } }) => {
-            console.log(topic);
             return (
               <Dropdown.Item key={topic} id={topic} onClick={handleTopic}>
                 {topic}
