@@ -9,7 +9,7 @@ const PostReport = () => {
   const [bodyExp, setBodyExp] = useState("");
   const [bodyImp, setBodyImp] = useState("");
   const [topics, setTopics] = useState([]);
-  const [chosenTopic, setChosenTopic] = useState("")
+  const [chosenTopic, setChosenTopic] = useState("");
 
   useEffect(() => {
     getTopicsByCommission(commission)
@@ -21,21 +21,24 @@ const PostReport = () => {
       });
   }, []);
 
-  const notify = () => {
-    toast.success('Posted Successfully', {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-  }
+  const notify = (msg) => {
+    toast(msg, {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
 
   const handleBodyExperience = (e) => {
     setBodyExp(e.target.value);
+    if (bodyExp.length >= 50) {
+      e.target.id;
+    }
   };
 
   const handleBodyImprovement = (e) => {
@@ -43,39 +46,61 @@ const PostReport = () => {
   };
 
   const handleChosenTopic = (e) => {
-    setChosenTopic(e.target.value)
-  }
+    setChosenTopic(e.target.value);
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    const postData = {
+    e.preventDefault();
+    if(chosenTopic === ''){
+      notify('Please choose a topic')
+    }else if(bodyExp === ''){
+      notify('More information need for experience')
+    }else if(bodyExp === ''){
+      notify('More information need for improvement')
+    }else{
+
+      const postData = {
         commission_name: commission,
         topic_name: chosenTopic,
         body_experience: bodyExp,
-        body_improvement: bodyImp
+        body_improvement: bodyImp,
+      };
+      postReport(postData)
+        .then((report) => {
+          notify('Posted Successfully');
+          setBodyExp("");
+          setBodyImp("");
+          setChosenTopic("");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
-    postReport(postData)
-    .then((report)=>{
-        notify()
-        setBodyExp('')
-        setBodyImp('')
-        setChosenTopic('')
-    }).catch(err => {
-        console.log(err)
-    })
-  }
+  };
 
   return (
     <section className="report-container">
       <h1>Posting Report</h1>
       <form className="report-form" onSubmit={handleSubmit}>
         <label htmlFor="topics">Select a Topic:</label>
-        <select name="topics" id="topics" value={chosenTopic} onChange={handleChosenTopic}>
+        <select
+          name="topics"
+          id="topics"
+          value={chosenTopic}
+          onChange={handleChosenTopic}
+        >
+          <option value="" disabled selected>
+            Choose an option
+          </option>
           {topics.map(({ topic: { topic } }) => {
-            return <option key={topic} value={topic}>{topic}</option>;
+            return (
+              <option key={topic} value={topic}>
+                {topic}
+              </option>
+            );
           })}
         </select>
-        <label htmlFor="body_experience">Experience:</label>
+        <label htmlFor="body_experience">Experience (min 50 characters):</label>
         <textarea
           value={bodyExp}
           name="body_experience"
@@ -83,9 +108,13 @@ const PostReport = () => {
           cols="30"
           rows="10"
           onChange={handleBodyExperience}
+          placeholder="experience"
+          className={bodyExp.length <= 50 ? "fail" : "success"}
           required={true}
         ></textarea>
-        <label htmlFor="body_improvement">Improvement:</label>
+        <label htmlFor="body_improvement">
+          Improvement (min 50 characters):
+        </label>
         <textarea
           value={bodyImp}
           name="body_improvement"
@@ -93,6 +122,8 @@ const PostReport = () => {
           cols="30"
           rows="10"
           onChange={handleBodyImprovement}
+          className={bodyImp.length <= 50 ? "fail" : "success"}
+          placeholder="improvement"
           required={true}
         ></textarea>
         <button>Submit Report</button>
