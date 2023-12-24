@@ -38,3 +38,13 @@ export const postUser = (postData) => {
     return api.post('/users/create', postData)
     .then(res => res.data.user)
 }
+
+export const getAllTopics = () => {
+    return api.get('/topics')
+    .then(res => res.data.topics)
+}
+
+export const postNewLink = (postData) => {
+    return api.post('/topics/link', postData)
+    .then(res => res.data.link)
+}

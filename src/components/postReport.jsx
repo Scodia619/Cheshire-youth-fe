@@ -51,14 +51,13 @@ const PostReport = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(chosenTopic === ''){
-      notify('Please choose a topic')
-    }else if(bodyExp === ''){
-      notify('More information need for experience')
-    }else if(bodyExp === ''){
-      notify('More information need for improvement')
-    }else{
-
+    if (chosenTopic === "") {
+      notify("Please choose a topic");
+    } else if (bodyExp === "") {
+      notify("More information need for experience");
+    } else if (bodyExp === "") {
+      notify("More information need for improvement");
+    } else {
       const postData = {
         commission_name: commission,
         topic_name: chosenTopic,
@@ -67,13 +66,13 @@ const PostReport = () => {
       };
       postReport(postData)
         .then((report) => {
-          notify('Posted Successfully');
+          notify("Posted Successfully");
           setBodyExp("");
           setBodyImp("");
           setChosenTopic("");
         })
-        .catch((err) => {
-          console.log(err);
+        .catch(({ response: { data } }) => {
+          notify(data.msg);
         });
     }
   };
@@ -100,7 +99,9 @@ const PostReport = () => {
             );
           })}
         </select>
-        <label htmlFor="body_experience" className="form-label">Experience (min 50 characters):</label>
+        <label htmlFor="body_experience" className="form-label">
+          Experience (min 50 characters):
+        </label>
         <textarea
           value={bodyExp}
           name="body_experience"
@@ -109,7 +110,9 @@ const PostReport = () => {
           rows="10"
           onChange={handleBodyExperience}
           placeholder="Experience"
-          className={bodyExp.length <= 50 ? "fail form-input" : "success form-inputl"}
+          className={
+            bodyExp.length <= 50 ? "fail form-input" : "success form-inputl"
+          }
           required={true}
         ></textarea>
         <label htmlFor="body_improvement" className="form-label">
@@ -122,11 +125,13 @@ const PostReport = () => {
           cols="30"
           rows="10"
           onChange={handleBodyImprovement}
-          className={bodyImp.length <= 50 ? "fail form-input" : "success form-input"}
+          className={
+            bodyImp.length <= 50 ? "fail form-input" : "success form-input"
+          }
           placeholder="Improvement"
           required={true}
         ></textarea>
-        <button className='submit'>Submit Report</button>
+        <button className="submit">Submit Report</button>
       </form>
       <ToastContainer
         position="top-center"
