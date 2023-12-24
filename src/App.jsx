@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import AdminPanel from "./pages/AdminPanel";
 import PostReport from "./components/postReport";
+import ViewReports from "./components/ViewReports";
 
 import { Route, Routes } from "react-router-dom";
 
@@ -18,7 +19,8 @@ function App() {
         <Route path="/:commission" element={<PostReport />} />
         <Route path="/login" element={<Login />}/>
         <Route path="/admin" element={<AdminPanel />}/>
-        <Route path="/admin/:commission" element={<ReportsList />} />
+        <Route path='/admin/reports/' element={<ViewReports />}/>
+        <Route path="/admin/reports/:commission" element={<ReportsList />} />
       </Routes>
     </>
   );

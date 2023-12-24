@@ -1,41 +1,22 @@
-import { useState, useEffect, useContext } from "react";
-import { UserContext } from "../contexts/userContext";
 import { Link } from "react-router-dom";
-import { getCommissionsByUser } from "../../api";
 
 const AdminPanel = () => {
-  const { user, setUser } = useContext(UserContext);
-
-  const [commissions, setCommissions] = useState([]);
-
-  useEffect(() => {
-    getCommissionsByUser(user.user_id)
-      .then((commissions) => {
-        setCommissions(commissions);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+  const options = [
+    { name: "View Reports", link: "reports" },
+    { name: "Create an admin", link: "create-user" },
+    { name: "Create a topic", link: "new-topic" },
+    { name: "Link a topic to a commission", link: "link-topic" },
+    { name: "Create a commission", link: "create-commission" },
+    { name: "Remove a topic from commission", link: "remove-topic" },
+  ];
 
   return (
-    <section className="commissions-container">
-      {commissions.map((commission) => {
-        return (
-          <Link
-            key={commission.commission.commission_id}
-            to={`/admin/${commission.commission.commission}`}
-          >
-            <div className="commissions-selector">
-              <h1>{commission.commission.commission}</h1>
-              <img
-                className="commission-image"
-                src={commission.commission.commission_image}
-                alt="picture of commission"
-              />
-            </div>
+    <section>
+      {options.map((option) => {
+        return (<Link to={`/admin/${option.link}`} key={option.name}>
+            <h1>{option.name}</h1>
           </Link>
-        );
+        )
       })}
     </section>
   );
