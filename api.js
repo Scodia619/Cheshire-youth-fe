@@ -33,3 +33,8 @@ export const postReport = (postData) => {
     return api.post('/reports', postData)
     .then(res => res.data.report)
 }
+
+export const postUser = (postData) => {
+    return api.post('/users/create', postData)
+    .then(res => res.data.user)
+}
