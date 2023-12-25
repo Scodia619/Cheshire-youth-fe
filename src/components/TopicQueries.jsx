@@ -30,7 +30,6 @@ const TopicQueries = (props) => {
 
   return (
     <section>
-      <h1>Topic Query</h1>
       <Dropdown>
         <Dropdown.Toggle variant="success" id="dropdown-basic">
           Topics

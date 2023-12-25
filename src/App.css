@@ -112,3 +112,31 @@ nav h1:hover{
     border-radius: 1em;
     padding: 0.5em
 }
+
+.buttons{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 1em;
+}
+
+.custom-table {
+    margin-top: 1em;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .custom-table th,
+  .custom-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .custom-table th {
+    background-color: #f2f2f2;
+  }
+
+  .long-text-td{
+    word-wrap: break-word;
+  max-width: 200px;
+  }
