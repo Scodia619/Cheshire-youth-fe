@@ -140,3 +140,27 @@ nav h1:hover{
     word-wrap: break-word;
   max-width: 200px;
   }
+
+  .admin-panel{
+    height: 56.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #09bbd7;
+  }
+
+  .admin-link-container{
+    border: 1px solid black;
+    border-radius: 1em;
+    padding: 0.5em;
+    margin: 1em;
+    width: 35em;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+  }
+
+  .admin-link:hover{
+    color:#09bbd7
+  }

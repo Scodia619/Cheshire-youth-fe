@@ -11,11 +11,14 @@ const AdminPanel = () => {
   ];
 
   return (
-    <section>
+    <section className="admin-panel">
       {options.map((option) => {
-        return (<Link to={`/admin/${option.link}`} key={option.name}>
+        return (
+          <div className="admin-link-container">
+        <Link to={`/admin/${option.link}`} className="admin-link" key={option.name}>
             <h1>{option.name}</h1>
           </Link>
+          </div>
         )
       })}
     </section>
