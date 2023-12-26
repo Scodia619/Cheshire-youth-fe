@@ -42,7 +42,8 @@ nav{
     display: flex;
     justify-content: space-between;
     background-color: #FF7D00;
-    height: 5em
+    height: 5em;
+    border-bottom: 1px solid black;
 }
 
 nav h1{
@@ -105,6 +106,7 @@ nav h1:hover{
 
 .form-label{
     margin-top: 0.5em;
+    font-size: 1.3em;
 }
 
 .form-input{
@@ -147,7 +149,7 @@ nav h1:hover{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: #09bbd7;
+    background-color: #bff6ff;
   }
 
   .admin-link-container{

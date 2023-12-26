@@ -32,14 +32,12 @@ const CreateUser = () => {
     }
 
     const handleSubmit = (e) => {
-        console.log('hello')
         e.preventDefault()
         const postData = {
             username,
             password
         }
         postUser(postData).then((user) => {
-            console.log('posted')
             notify(`${user.username} created`)
         }).catch(({ response: { data } }) => {
             notify(data.msg);

@@ -8,6 +8,7 @@ const AdminPanel = () => {
     { name: "Link a topic to a commission", link: "link-topic" },
     { name: "Create a commission", link: "create-commission" },
     { name: "Remove a topic from commission", link: "remove-topic" },
+    {name: 'Delete Reports for a commission', link: 'remove-reports'}
   ];
 
   return (

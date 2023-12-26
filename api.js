@@ -53,3 +53,8 @@ export const postNewTopic = (postData) => {
     return api.post('/topics', postData)
     .then(res => res.data.topic)
 }
+
+export const postNewCommission = (postData) => {
+    return api.post('/commission', postData)
+    .then(res => res.data.commission)
+}
