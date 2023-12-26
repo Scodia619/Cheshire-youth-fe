@@ -80,7 +80,7 @@ const PostReport = () => {
   return (
     <section className="form-container">
       <h1>Posting Report</h1>
-      <form className="form" onSubmit={handleSubmit}>
+      <form className="form-mobile" onSubmit={handleSubmit}>
         <label htmlFor="topics">Select a Topic:</label>
         <select
           name="topics"

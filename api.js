@@ -58,3 +58,12 @@ export const postNewCommission = (postData) => {
     return api.post('/commission', postData)
     .then(res => res.data.commission)
 }
+
+export const removeLink = (deleteData) => {
+    return api.request({
+        method: 'delete',
+        url: '/topics/link',
+        data: deleteData
+      })
+    .then(res => res)
+}

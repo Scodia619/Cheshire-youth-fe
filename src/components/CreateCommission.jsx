@@ -37,6 +37,8 @@ const CreateCommission = () => {
     }
     postNewCommission(postData).then((commission) => {
         notify(`${commission.commission} created`)
+        setCommission('')
+        setCommission_Img('')
     }).catch(({ response: { data } }) => {
         notify(data.msg);
       });
