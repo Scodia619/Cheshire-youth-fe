@@ -78,7 +78,7 @@ const PostReport = () => {
   };
 
   return (
-    <section className="form-container">
+    <section className="form-container-mobile">
       <h1>Posting Report</h1>
       <form className="form-mobile" onSubmit={handleSubmit}>
         <label htmlFor="topics">Select a Topic:</label>

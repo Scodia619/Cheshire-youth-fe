@@ -175,3 +175,13 @@ nav h1:hover{
     padding: 1em;
     border-radius: 1em
   }
+
+  .form-container-mobile{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 50em;
+    background-color: #bff6ff;
+}
