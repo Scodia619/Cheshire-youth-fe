@@ -205,12 +205,58 @@ nav h1:hover {
   margin: 4em;
   padding: 10px;
   width: 20em;
-  height: 13em
+  height: 13em;
 }
 
 .commission-image-mobile {
-    margin-top: 0.7em;
-    border-bottom-left-radius: 2em;
-    border-bottom-right-radius: 2em;
-    width: 20em;
-  }
+  margin-top: 0.7em;
+  border-bottom-left-radius: 2em;
+  border-bottom-right-radius: 2em;
+  width: 20em;
+}
+
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 1em;
+  padding: 20px;
+  text-align: center;
+}
+
+.modal-header {
+  color: #4f5165;
+}
+
+.button-container {
+  margin-top: 20px;
+}
+
+.cancel-button {
+  margin-right: 10px;
+  background-color: #ccc;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.confirm-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}

@@ -67,3 +67,17 @@ export const removeLink = (deleteData) => {
       })
     .then(res => res)
 }
+
+export const getUsers = () => {
+    return api.get('/users')
+    .then(res => res.data.users)
+}
+
+export const removeUser = (deleteData) => {
+    return api.request({
+        method: 'delete',
+        url: '/users',
+        data: deleteData
+      })
+    .then(res => res)
+}
