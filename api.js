@@ -86,3 +86,12 @@ export const linkUser = (postData) => {
     return api.post('/commission/add-user', postData)
     .then(res => res.data.commissionUser)
 }
+
+export const deleteAllReports = (deleteData) => {
+    return api.request({
+        method: 'delete',
+        url: '/reports/delete',
+        data: deleteData
+      })
+    .then(res => res)
+}

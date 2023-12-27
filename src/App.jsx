@@ -14,6 +14,7 @@ import CreateCommission from "./components/CreateCommission";
 import RemoveTopic from "./components/RemoveTopic";
 import RemoveUser from "./components/RemoveUser";
 import LinkUser from "./components/LinkUser";
+import RemoveReports from "./components/RemoveReports";
 
 import { Route, Routes } from "react-router-dom";
 
@@ -33,6 +34,7 @@ function App() {
         <Route path='/admin/new-topic' element={<NewTopic />} />
         <Route path='/admin/remove-topic' element={<RemoveTopic />} />
         <Route path='/admin/remove-admin' element={<RemoveUser />} />
+        <Route path='admin/remove-reports' element={<RemoveReports />}/>
         <Route path='/admin/create-user' element={<CreateUser />}/>
         <Route path='/admin/create-commission' element={<CreateCommission />} />
       </Routes>
