@@ -13,6 +13,7 @@ import NewTopic from "./components/NewTopic";
 import CreateCommission from "./components/CreateCommission";
 import RemoveTopic from "./components/RemoveTopic";
 import RemoveUser from "./components/RemoveUser";
+import LinkUser from "./components/LinkUser";
 
 import { Route, Routes } from "react-router-dom";
 
@@ -28,6 +29,7 @@ function App() {
         <Route path='/admin/reports/' element={<ViewReports />}/>
         <Route path="/admin/reports/:commission" element={<ReportsList />} />
         <Route path='/admin/link-topic' element={<LinkTopics />} />
+        <Route path='/admin/link-user' element={<LinkUser />}/>
         <Route path='/admin/new-topic' element={<NewTopic />} />
         <Route path='/admin/remove-topic' element={<RemoveTopic />} />
         <Route path='/admin/remove-admin' element={<RemoveUser />} />
