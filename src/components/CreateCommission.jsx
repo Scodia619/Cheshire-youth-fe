@@ -7,19 +7,20 @@ import "react-toastify/dist/ReactToastify.css";
 const CreateCommission = () => {
   const [commission, setCommission] = useState("");
   const [commission_image, setCommission_Img] = useState("");
+  const regex = /^https:\/\//;
 
   const notify = (msg) => {
     toast(msg, {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-}
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
 
   const handleCommission = (e) => {
     setCommission(e.target.value);
@@ -31,17 +32,24 @@ const CreateCommission = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const postData = {
+    if (!regex.test(commission_image)) {
+      notify("Image Link Not Valid");
+      setCommission_Img('')
+    }else {
+      const postData = {
         commission,
-        commission_image
+        commission_image,
+      };
+      postNewCommission(postData)
+        .then((commission) => {
+          notify(`${commission.commission} created`);
+          setCommission("");
+          setCommission_Img("");
+        })
+        .catch(({ response: { data } }) => {
+          notify(data.msg);
+        });
     }
-    postNewCommission(postData).then((commission) => {
-        notify(`${commission.commission} created`)
-        setCommission('')
-        setCommission_Img('')
-    }).catch(({ response: { data } }) => {
-        notify(data.msg);
-      });
   };
 
   return (
@@ -62,14 +70,18 @@ const CreateCommission = () => {
           required
         />
         <label htmlFor="image" className="form-label">
-          Commission Image:
+          Commission Image (Must start with https://):
         </label>
         <input
           type="text"
           name="image"
           value={commission_image}
           id="image"
-          className="form-input"
+          className={
+            regex.test(commission_image)
+              ? "success form-input"
+              : "fail form-input"
+          }
           placeholder="Commission Image Link..."
           onChange={handleCommissionImg}
           required
