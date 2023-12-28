@@ -3,6 +3,7 @@
 This is then front end for the Youth Commission RESTful API. This allows you to do POST, GET, DELETE requests with the various endpoints provided.
 
 You can find the hosted version here: https://sweet-faun-6e71d9.netlify.app/
+
 You can find the files here: https://github.com/Scodia619/Cheshire-youth-fe
 
 This is developed with a mix of mobile and non-mobile CSS. The Home Page and Post Report pages are designed for mobile screens as that will be the majority of the traffic. The Admin Panel and components are focused on non-mobile as its all data that should be entered by someone at the office.
