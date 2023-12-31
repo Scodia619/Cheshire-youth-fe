@@ -19,14 +19,14 @@ const Home = () => {
   if(isLoading) return <h1>Loading</h1>
 
   return (
-    <section className="commissions-container-mobile">
+    <section className="commissions-container">
       {commissions.map((commission) => {
         return (
           <Link to={commission.commission} key={commission.commission_id}>
-            <div className="commissions-selector-mobile">
+            <div className="commissions-selector">
               <h1>{commission.commission}</h1>
               <img
-              className="commission-image-mobile"
+              className="commission-image"
                 src={commission.commission_image}
                 alt="picture of commission"
               />

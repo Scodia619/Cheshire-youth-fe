@@ -25,12 +25,16 @@ body {
   margin: 4em;
   padding: 10px;
   width: 40em;
+  height: 22.5em;
 }
 
 .commission-image {
   border-bottom-left-radius: 2em;
   border-bottom-right-radius: 2em;
   width: 40em;
+  margin: 0; /* Reset margin */
+  padding: 0; /* Reset padding */
+  display: block;
 }
 
 a {
@@ -167,54 +171,6 @@ nav h1:hover {
   color: #09bbd7;
 }
 
-.form-mobile {
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-  border: 1px solid black;
-  padding: 1em;
-  border-radius: 1em;
-}
-
-.form-container-mobile {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  height: 50em;
-  background-color: #bff6ff;
-}
-
-.commissions-container-mobile {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  width: 100%;
-  height: auto;
-}
-
-.commissions-selector-mobile {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid black;
-  border-radius: 2em;
-  margin: 4em;
-  padding: 10px;
-  width: 20em;
-  height: 13em;
-}
-
-.commission-image-mobile {
-  margin-top: 0.7em;
-  border-bottom-left-radius: 2em;
-  border-bottom-right-radius: 2em;
-  width: 20em;
-}
-
 .modal-wrapper {
     position: relative;
     top:-25%;
@@ -257,4 +213,54 @@ nav h1:hover {
   padding: 8px 16px;
   border-radius: 4px;
   cursor: pointer;
+}
+@media (max-width: 768px) {
+  .form {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border: 1px solid black;
+    padding: 1em;
+    border-radius: 1em;
+    width: 20em
+  }
+  
+  .form-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 50em;
+    background-color: #bff6ff;
+  }
+  
+  .commissions-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+  }
+  
+  .commissions-selector{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 2em;
+    margin: 4em;
+    padding: 10px;
+    width: 20em;
+    height: 13em;
+  }
+  
+  .commission-image {
+    margin-top: 0.7em;
+    border-bottom-left-radius: 2em;
+    border-bottom-right-radius: 2em;
+    width: 20em;
+  }
 }
